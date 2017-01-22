@@ -2,9 +2,9 @@
 
 @section('content')
 <div class="page-header">
-    <h1>Title</h1>
+    <h1>{{ $page->title }}</h1>
 </div>
 <p class="lead">
-    Home
+    {!! $page->body !!}
 </p>
 @stop

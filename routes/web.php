@@ -11,8 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::any('{any}',  'PageController@getPageBySlug')->where('any', '.*');  //Generic endpoint for all cmsable endpoints
+Route::get('/',  'PageController@index')->name('view.index');
+Route::get('/contact-us',  'PageController@contactUs')->name('view.contact.us');  
+
+// Generic endpoint for all cmsable pages
+Route::any('{any}',  'PageController@getPageBySlug')->where('any', '.*')->name('view.cms.page');  

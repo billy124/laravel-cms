@@ -12,9 +12,24 @@ class PageController extends Controller {
      * @return type
      */
     public function index() {
-
+        $data = [];
+        return view('pages.index', $data);
+    }
+    
+    /**
+     * 
+     * @return type
+     */
+    public function contactUs() {
+        $data = [];
+        return view('pages.contact-us', $data);
     }
 
+    /**
+     * 
+     * @param Request $request
+     * @return type
+     */
     public function getPageBySlug(Request $request) {
         $page = Page::where('slug', Page::fixSlug($request->getPathInfo()))
                     ->first();
@@ -23,6 +38,18 @@ class PageController extends Controller {
             'page' => $page 
        ];
        
-        return view('pages.index', $data);
+        return view('pages.dynamic-page', $data);
+    }
+    
+    /**
+     * 
+     * @return type
+     */
+    public function getAllPages() {
+        $data = [
+            'pages' => Page::get()
+        ];
+        
+        return view('includes.page-list', $data);
     }
 }

@@ -2,9 +2,9 @@
 
 @section('content')
 <div class="page-header">
-    <h1>Title</h1>
+    <h1>Contact us</h1>
 </div>
 <p class="lead">
-    Home
+    Contact us form here
 </p>
 @stop
