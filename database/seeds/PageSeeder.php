@@ -25,6 +25,7 @@ class PageSeeder extends Seeder {
 
         for ($i = 0; $i < 11; $i++) {
             $this->data[] = [
+                'parent_id' => null,
                 'title' => $faker->text(20),
                 'subtitle' => $faker->text(20),
                 'excerpt' => $faker->text(100),

@@ -47,7 +47,7 @@ class PageController extends Controller {
      */
     public function getAllPages() {
         $data = [
-            'pages' => Page::get()
+            'pages' => Page::getParentPages()
         ];
         
         return view('includes.page-list', $data);

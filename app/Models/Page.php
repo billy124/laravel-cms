@@ -16,7 +16,7 @@ class Page extends BaseModel {
      *
      * @var array
      */
-    protected $fillable = ['title', 'subtitle', 'excerpt', 'body', 'slug', 'order'];
+    protected $fillable = ['parent_id', 'title', 'subtitle', 'excerpt', 'body', 'slug', 'order'];
 
     /**
      * Set model validation rules.
@@ -26,14 +26,52 @@ class Page extends BaseModel {
     public function rules() {
         return [
             'title' => 'required|max:255',
-            'code' => 'required|max:255|unique:' . $this->getTable() . ',code,' . $this->id
+            'body' => 'required',
+            'slug' => 'required'
         ];
     }
     
+    public function parent(){
+        return $this->belongsTo('App\Models\Page', 'parent_id');
+    }
+    
+    /**
+     * Get the children pages of current page
+     * 
+     * @return type
+     */
+    public function children() {
+        return $this->hasMany('App\Models\Page', 'parent_id');
+    }
+
+    /**
+     * Remove any starting or ending slashes from a string
+     * 
+     * @param type $string
+     * @return type
+     */
     public static function fixSlug($string) {
         return strtolower(
-                    rtrim(ltrim($string, '/'), '/')
-                );
+                rtrim(ltrim($string, '/'), '/')
+        );
+    }
+    
+    /**
+     * Get all top level pages, that have no children
+     * 
+     * @return type
+     */
+    public static function getParentPages() {
+        return Page::where('parent_id', null)->get();
+    }
+
+    /**
+     * Get parent pages with children lazy loaded
+     * 
+     * @return type
+     */
+    public static function getPageTree() {
+        return Page::whereNull('parent_id')->with('children')->get();
     }
 
 }
