@@ -8,6 +8,7 @@ use App\Models\Page;
 class PageController extends Controller {
 
     /**
+     * Static index page
      * 
      * @return type
      */
@@ -17,6 +18,7 @@ class PageController extends Controller {
     }
     
     /**
+     * Static contact us page
      * 
      * @return type
      */
@@ -26,6 +28,7 @@ class PageController extends Controller {
     }
 
     /**
+     * Get a page and its content by the slug
      * 
      * @param Request $request
      * @return type
@@ -33,6 +36,11 @@ class PageController extends Controller {
     public function getPageBySlug(Request $request) {
         $page = Page::where('slug', Page::fixSlug($request->getPathInfo()))
                     ->first();
+        
+        // could not find page so throw a 404 exception
+        if(!$page) {
+            abort(404);
+        }
         
         $data = [
             'page' => $page 
@@ -42,6 +50,7 @@ class PageController extends Controller {
     }
     
     /**
+     * Get a list of all the pages as a menu
      * 
      * @return type
      */
