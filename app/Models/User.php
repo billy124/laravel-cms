@@ -31,4 +31,22 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    
+    /**
+     * Set the user's password with encryption.
+     *
+     * @param  string  $value
+     */
+    public function setPasswordAttribute($value) {
+        $this->attributes['password'] = self::encodePassword($value);
+    }
+    
+    /**
+     * 
+     * @param type $password
+     * @return type
+     */
+    static public function encodePassword($password) {
+        return \Hash::make($password);
+    }
 }

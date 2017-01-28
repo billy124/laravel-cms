@@ -18,6 +18,9 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages <span class="caret"></span></a>
                     {!! getCmsPageNav() !!}
                 </li>
+                @if(hasRole('admin'))
+                <li class="{{ isActiveRoute('view.contact.us', 'active') }}"><a href="{{ route('view.contact.us') }}">Admin</a></li>
+                @endif
             </ul>
         </div><!--/.nav-collapse -->
     </div>

@@ -125,6 +125,20 @@ function isAuthenticUser() {
 }
 
 /**
+ * Return true of false if user has a role
+ * 
+ * @param type $role
+ * @return boolean
+ */
+function hasRole($role) {
+    if(isAuthenticUser()) {
+        return getAuthenticatedUser()->hasRole($role);
+    }
+    
+    return false;
+}
+
+/**
  * Returns the form field value.
  * 
  * @param object $object
