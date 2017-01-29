@@ -11,18 +11,17 @@
             <form class="ajax-submit" action="{{ route('store.page') }}" method="post">
                 {{ csrf_field() }}
                 
-                <div class="form-group form-field-group required">
-                    <label for="slug">Slug</label>
-                    <input type="text" class="form-control" id="slug" name="slug" placeholder="Enter a unique page slug">
-                    <p class="validation-error"></p>
-                </div>
-
                 <div class="form-group form-field-group">
                     <label for="title">Title</label>
                     <input type="text" class="form-control" id="title" name="title" placeholder="Enter a title">
                     <p class="validation-error"></p>
                 </div>
-
+                
+                <div class="form-group form-field-group required">
+                    <label for="slug">Slug</label>
+                    <input type="text" class="form-control" id="slug" name="slug" placeholder="Enter a unique page slug">
+                    <p class="validation-error"></p>
+                </div>
 
                 <div class="form-group form-field-group">
                     <label for="subtitle">Sub title</label>

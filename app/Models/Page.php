@@ -27,7 +27,7 @@ class Page extends BaseModel {
         return [
             'title' => 'required|max:255',
             'body' => 'required',
-            'slug' => 'required'
+            'slug' => 'required|unique:pages,slug'
         ];
     }
     
