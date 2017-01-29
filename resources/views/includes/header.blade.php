@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ route('view.index') }}">Simple CMS</a>
+            <a class="navbar-brand" href="{{ route('view.index') }}">{{ config('app.name') }}</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
@@ -19,7 +19,7 @@
                     {!! getCmsPageNav() !!}
                 </li>
                 @if(hasRole('admin'))
-                <li class="{{ isActiveRoute('view.contact.us', 'active') }}"><a href="{{ route('view.contact.us') }}">Admin</a></li>
+                <li class="{{ isActiveRoute('view.admin.dashboard', 'active') }}"><a href="{{ route('view.admin.dashboard') }}">Admin</a></li>
                 @endif
             </ul>
         </div><!--/.nav-collapse -->

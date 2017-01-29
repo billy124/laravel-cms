@@ -18,6 +18,11 @@ Route::get('/contact-us',  'PageController@contactUs')->name('view.contact.us');
 // static home route
 Route::get('/home', 'HomeController@index');
 
+Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
+    Route::get('/', 'AdminController@index')->name('view.admin.dashboard');
+    
+});
+
 // Auth routes for register and login
 Auth::routes();
 
