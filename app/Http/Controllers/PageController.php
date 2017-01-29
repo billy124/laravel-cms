@@ -88,7 +88,12 @@ class PageController extends Controller {
      * @param Request $request
      */
     public function store(Request $request) {
-        Page::create($request->all());
+        $page = new Page;
+        $this->validate($request, $page->rules(), $page->messages());
+
+        $page->create($request->all());
+        
+        return $request->ajax() ? view('includes.flash', ['flashStatus' => "Page '" . $request->get('title') . "' has been created."]) : redirect()->route('view.cms.page', [$page->slug]);
     }
     
     /**

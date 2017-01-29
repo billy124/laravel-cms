@@ -11,33 +11,38 @@
             <form class="ajax-submit" action="{{ route('store.page') }}" method="post">
                 {{ csrf_field() }}
                 
-                <div class="form-group">
+                <div class="form-group form-field-group required">
                     <label for="slug">Slug</label>
                     <input type="text" class="form-control" id="slug" name="slug" placeholder="Enter a unique page slug">
+                    <p class="validation-error"></p>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group form-field-group">
                     <label for="title">Title</label>
                     <input type="text" class="form-control" id="title" name="title" placeholder="Enter a title">
+                    <p class="validation-error"></p>
                 </div>
 
 
-                <div class="form-group">
+                <div class="form-group form-field-group">
                     <label for="subtitle">Sub title</label>
                     <input type="text" class="form-control" id="subtitle" name="subtitle" placeholder="Enter a sub title">
+                    <p class="validation-error"></p>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group form-field-group">
                     <label for="excerpt">Excerpt</label>
                     <textarea class="form-control" id="excerpt" name="excerpt" rows="3"></textarea>
+                    <p class="validation-error"></p>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group form-field-group">
                     <label for="body">Body</label>
                     <textarea class="form-control" id="body" name="body" rows="3"></textarea>
+                    <p class="validation-error"></p>
                 </div>
 
-                <div class="form-check">
+                <div class="form-check form-field-group">
                     <label class="form-check-label">
                         <input type="checkbox" name="is_active" value="1" class="form-check-input">
                         Active

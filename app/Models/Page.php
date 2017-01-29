@@ -16,7 +16,7 @@ class Page extends BaseModel {
      *
      * @var array
      */
-    protected $fillable = ['parent_id', 'title', 'subtitle', 'excerpt', 'body', 'slug', 'order'];
+    protected $fillable = ['parent_id', 'title', 'subtitle', 'excerpt', 'body', 'slug', 'order', 'is_active', 'publish_date'];
 
     /**
      * Set model validation rules.

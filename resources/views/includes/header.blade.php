@@ -50,3 +50,5 @@
         </div><!--/.nav-collapse -->
     </div>
 </nav>
+
+@include('includes.flash')

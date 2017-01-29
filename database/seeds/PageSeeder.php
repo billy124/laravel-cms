@@ -23,7 +23,7 @@ class PageSeeder extends Seeder {
 
         $faker = Faker\Factory::create();
 
-        for ($i = 0; $i < 11; $i++) {
+        for ($i = 0; $i < 1; $i++) {
             $this->data[] = [
                 'parent_id' => null,
                 'title' => $faker->text(20),
