@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Page;
+use Illuminate\Support\Facades\Storage;
 
 class PageController extends Controller {
 
@@ -91,8 +92,11 @@ class PageController extends Controller {
         $page = new Page;
         $this->validate($request, $page->rules(), $page->messages());
 
-        $page->create($request->all());
+        $page = $page->create($request->all());
         
+        $json = $page->toJson();
+        Storage::put(asset('pages').$page->slug.'.json', $json);
+
         return $request->ajax() ? view('includes.flash', ['flashStatus' => "Page '" . $request->get('title') . "' has been created."]) : redirect()->route('view.cms.page', [$page->slug]);
     }
     
