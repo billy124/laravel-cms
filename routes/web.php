@@ -15,9 +15,6 @@
 Route::get('/',  'PageController@index')->name('view.index');
 Route::get('/contact-us',  'PageController@contactUs')->name('view.contact.us');  
 
-// static home route
-Route::get('/home', 'HomeController@index');
-
 Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
     Route::get('/', 'AdminController@index')->name('view.admin.dashboard');
     
