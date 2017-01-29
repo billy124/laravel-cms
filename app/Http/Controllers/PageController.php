@@ -94,8 +94,7 @@ class PageController extends Controller {
 
         $page = $page->create($request->all());
         
-        $json = $page->toJson();
-        Storage::put(asset('pages').$page->slug.'.json', $json);
+        Storage::put('pages/' . $page->slug . '.json', $page->toJson());
 
         return $request->ajax() ? view('includes.flash', ['flashStatus' => "Page '" . $request->get('title') . "' has been created."]) : redirect()->route('view.cms.page', [$page->slug]);
     }
