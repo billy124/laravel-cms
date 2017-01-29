@@ -61,4 +61,43 @@ class PageController extends Controller {
         
         return view('includes.page-list', $data);
     }
+    
+    /**
+     * List all dynamic pages
+     * 
+     * @return type
+     */
+    public function listPages() {
+        $data = [];
+        return view('pages.list', $data);
+    }
+    
+    /**
+     * Create a new page form
+     * 
+     * @return type
+     */
+    public function create() {
+        $data = [];
+        return view('pages.create', $data);
+    }
+    
+    /**
+     * create a new page
+     * 
+     * @param Request $request
+     */
+    public function store(Request $request) {
+        Page::create($request->all());
+    }
+    
+    /**
+     * Edit page form
+     * 
+     * @return type
+     */
+    public function edit(Page $page) {
+        $data = [];
+        return view('pages.edit', $data);
+    }
 }

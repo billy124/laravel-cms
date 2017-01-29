@@ -31,7 +31,8 @@ class PageSeeder extends Seeder {
                 'excerpt' => $faker->text(100),
                 'body' => "<p>" . $faker->text(rand(200,400)) . "</p><p>" . $faker->text(rand(150,400)) . "</p><p>" . $faker->text(rand(300,400)) . "</p>",
                 'slug' => $faker->slug(),
-                'order' => 1
+                'order' => 1,
+                'is_active' => 1
             ];
         }
     }

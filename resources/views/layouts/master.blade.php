@@ -6,14 +6,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>title</title>
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-        <script src="{{ asset('js/app.js') }}"></script>
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}"
     </head>
     <body>
         @include('includes.header')
         <div class="container">
             @yield('content')
         </div>
+        
         @include('includes.footer')
     </body>
+    @include('includes.js')
 </html>

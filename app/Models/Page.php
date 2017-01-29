@@ -62,7 +62,9 @@ class Page extends BaseModel {
      * @return type
      */
     public static function getParentPages() {
-        return Page::where('parent_id', null)->get();
+        return Page::where('parent_id', null)
+                ->where('is_active', 1)
+                ->get();
     }
 
     /**
@@ -71,7 +73,9 @@ class Page extends BaseModel {
      * @return type
      */
     public static function getPageTree() {
-        return Page::whereNull('parent_id')->with('children')->get();
+        return Page::whereNull('parent_id')
+                ->where('is_active', 1)
+                ->with('children')->get();
     }
 
 }

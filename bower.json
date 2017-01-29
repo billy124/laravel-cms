@@ -1,0 +1,31 @@
+{
+  "name": "Simple CMS",
+  "description": "Simple CMS",
+  "main": "public/index.php",
+  "authors": [
+    "Billy Mahmood <billy124@msn.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "cms",
+    "laravel"
+  ],
+  "homepage": "www.magmamedia.co.uk",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "jquery-ui": "^1.12.1",
+    "materialize": "^0.97.8",
+    "font-awesome": "^4.7.0",
+    "sly": "^1.6.1",
+    "aos": "^2.1.1",
+    "flexslider": "^2.6.3"
+  }
+}

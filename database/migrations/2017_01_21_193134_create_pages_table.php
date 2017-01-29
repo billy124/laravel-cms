@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 class CreatePagesTable extends Migration
 {
@@ -21,6 +22,8 @@ class CreatePagesTable extends Migration
             $table->text('body')->nullable();
             $table->string('slug')->unique();
             $table->integer('order')->default(1);
+            $table->dateTime('publish_date')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->boolean('is_active')->default('0');
             
             $table->timestamps();
             $table->softDeletes();
