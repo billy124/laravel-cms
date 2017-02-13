@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use App\Models\Page;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\DB;
 
 class SyncPages extends Command
 {
@@ -39,25 +40,39 @@ class SyncPages extends Command
      */
     public function handle()
     {
+        // delete all the records from the pages table
+        DB::table((new Page())->getTable())->truncate();
+        // the directory we store all new pages json in
         $directory = resource_path('assets/pages/');
+        // get all the files from the page directory
         $files = File::allFiles($directory);
         
-        //$bar = $this->output->createProgressBar(count($files));
+        // create a progress bar for feed back purposes 
+        $progress = $this->output->createProgressBar(count($files));
         
+        // start and displays the progress bar
+        $progress->start();
+
+        // loop through the files
         foreach ($files as $file) {
+            // get the contents of the file as an array
             $contents = json_decode(File::get($file), true);
 
-            $page = Page::where('id', $contents['id'])
-                    ->first();
-            
-            if($page) {
-                $page->fill($contents);
-                $page->save();
-            } else {
-                Page::create($contents);
+            if(isset($contents['id'])) {
+                // drop the id key as we dont need it
+                array_forget($contents, 'id');
             }
             
-            //$bar->advance();
+            Page::create($contents);
+            
+            // update the advance bar
+            $progress->advance();
         }
+        
+        // finish the bar
+        $progress->finish();
+        
+        $this->line('');
+        $this->info('Sync completed.');
     }
 }
