@@ -5,15 +5,10 @@
     <h1>Dashboard</h1>
 </div>
 <div>
-<p >
     <ul>
         <li>
-            <a href="" >View all pages</a>
-        </li>
-        <li>
-            <a href="{{ route('create.page') }}" >Create a new Page</a>
+            <a href="{{ route('admin.list.pages') }}">Manage Pages</a>
         </li>
     </ul>
-</p>
 </div>
 @stop

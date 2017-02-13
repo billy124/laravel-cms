@@ -69,7 +69,9 @@ class PageController extends Controller {
      * @return type
      */
     public function listPages() {
-        $data = [];
+        $data = [
+            'pages' => Page::get()
+        ];
         return view('pages.list', $data);
     }
     
@@ -79,8 +81,7 @@ class PageController extends Controller {
      * @return type
      */
     public function create() {
-        $data = [];
-        return view('pages.create', $data);
+        return view('pages.create');
     }
     
     /**
@@ -89,13 +90,16 @@ class PageController extends Controller {
      * @param Request $request
      */
     public function store(Request $request) {
-        $page = new Page;
+        // create a page object
+        $page = new Page();
+        // validate the request
         $this->validate($request, $page->rules(), $page->messages());
-
+        // get the created page
         $page = $page->create($request->all());
-        
+        // save a json version of the page
         File::put(resource_path('assets/pages/') . $page->slug . '.json', $page->toJson());
-
+        
+        // return message 
         return $request->ajax() ? view('includes.flash', ['flashStatus' => "Page '" . $request->get('title') . "' has been created."]) : redirect()->route('view.cms.page', [$page->slug]);
     }
     

@@ -19,10 +19,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
     Route::get('/', 'AdminController@index')->name('view.admin.dashboard');
    
     // admin routes to add, edit and delete pages
-    Route::get('pages', 'PageController@listPages')->name('list.pages');
-    Route::get('pages/create', 'PageController@create')->name('create.page');
-    Route::post('pages/store', 'PageController@store')->name('store.page');
-    Route::get('pages/{id}', 'PageController@edit')->name('edit.page');
+    Route::get('pages', 'PageController@listPages')->name('admin.list.pages');
+    Route::get('pages/create', 'PageController@create')->name('admin.create.page');
+    Route::post('pages/store', 'PageController@store')->name('admin.store.page');
+    Route::get('pages/{id}', 'PageController@edit')->name('admin.edit.page');
 });
 
 // Auth routes for register and login

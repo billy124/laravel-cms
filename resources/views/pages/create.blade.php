@@ -8,7 +8,7 @@
         </div>
 
         <div>
-            <form class="ajax-submit" action="{{ route('store.page') }}" method="post">
+            <form class="ajax-submit" action="{{ route('admin.store.page') }}" method="post">
                 {{ csrf_field() }}
                 
                 <div class="form-group form-field-group">

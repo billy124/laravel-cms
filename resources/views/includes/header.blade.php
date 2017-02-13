@@ -14,10 +14,7 @@
             <ul class="nav navbar-nav">
                 <li class="{{ isActiveRoute('view.index', 'active') }}"><a href="{{ route('view.index') }}">Home</a></li>
                 <li class="{{ isActiveRoute('view.contact.us', 'active') }}"><a href="{{ route('view.contact.us') }}">Contact us</a></li>
-                <li class="dropdown {{ isActiveRoute('view.cms.page', 'active') }}">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages <span class="caret"></span></a>
-                    {!! getCmsPageNav() !!}
-                </li>
+                {!! getCmsPageNav() !!}
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 @if (!isAuthenticUser())
