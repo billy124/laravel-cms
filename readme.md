@@ -1,25 +1,21 @@
 # Installation and setup guide
 
-To setup the platform please carry out the following commands after pulling from git
+To setup the platform please run the following commands
 
-1) run command 'composer update' to make sure you have all the packages needed
+1) Clone the repo using ssh 'git clone git@github.com:billy124/laravel-cms.git' or using https 'git clone https://github.com/billy124/laravel-cms.git'
 
-2) make sure you have a .env file in the application root, if not copy the .env.example and name it to .env
+2) Install the composer packages 'composer install'
 
-3) create a database on your local machine and edit the .env with your db credentials 
+3) Install bower and NPM packages 'bower install', 'npm install' 
 
-4) run command 'php artisan migrate:refresh' to create all the tables for the project
+4) Setup the .env file: 'cp .env.example .env' 
 
-5) to run a php server run command 'php artisan serve'
+5) Create a database on your local machine and edit the .env with your db credentials 
 
+6) Create tables and seed database 'php artisan migrate:refresh --seed'
 
-## Contributing
+7) Serve the site using PHP 'php artisan serve'
 
-Thank you for considering contributing to the Laravel CMS!
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
 
 ## License
 
