@@ -26,15 +26,15 @@ class UserSeeder extends Seeder {
         $this->admins[] = [
             'first_name' => 'Billy',
             'last_name' => 'Mahmood',
-            'email' => 'billy@e3creative.co.uk',
-            'password' => 'testtest'
+            'email' => 'billy124@msn.com',
+            'password' => 'admin123'
         ];
         
         $this->users[]  = [
             'first_name' => 'Omar',
             'last_name' => 'Ahmed',
-            'email' => 'omar@e3creative.co.uk',
-            'password' => 'testtest'
+            'email' => 'omar@mytestingarea.com',
+            'password' => 'admin123'
         ];
     }
 
