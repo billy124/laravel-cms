@@ -109,7 +109,25 @@ class PageController extends Controller {
      * @return type
      */
     public function edit(Page $page) {
-        $data = [];
+        $data = [
+            'page' => $page
+        ];
+        
         return view('pages.edit', $data);
+    }
+    
+    /**
+     * 
+     * @param Page $page
+     */
+    public function update(Page $page, Request $request) {
+        // validate the request
+        $this->validate($request, $page->rules(), $page->messages());
+        
+        // update page
+        $page->fill($request->all())->update();
+        
+        // save a json version of the page
+        File::put(resource_path('assets/pages/') . $page->slug . '.json', $page->toJson());
     }
 }

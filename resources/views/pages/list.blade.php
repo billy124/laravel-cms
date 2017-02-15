@@ -21,6 +21,7 @@
                 <tr>
                     <th>#</th>
                     <th>Title</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -28,6 +29,7 @@
                 <tr>
                     <td>{{ $page->id }}</td>
                     <td>{{ $page->title }}</td>
+                    <td><a href="{{ route('admin.edit.page', $page->id) }}">Edit</a></td>
                 </tr>
                 @endforeach
             </tbody>

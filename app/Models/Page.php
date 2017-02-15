@@ -31,7 +31,7 @@ class Page extends BaseModel {
         ];
     }
     
-    public function parent(){
+    public function parentPage(){
         return $this->belongsTo('App\Models\Page', 'parent_id');
     }
     
